@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="招新咨询群二维码活码">
+<meta name="keywords" content="招新, 咨询, 群聊, 二维码, 活码">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+<title>扫码加群</title>
+<link rel="stylesheet" type="text/css" href="main.css">
+<script src="./getUrlParameter.js"></script>
+</head>
+
+<body>
+<div style="text-align: center;">
+    <img id="qr" src>
+    <script type="text/javascript">
+        org_name = getQueryVariable("org");
+        qr_path = "../org_qr/" + org_name + ".jpg";
+    
+        var qr = document.getElementById("qr");
+        qr.src = qr_path;
+    </script>
+</div>
+</body>
+
+</html>
