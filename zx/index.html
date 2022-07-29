@@ -14,14 +14,17 @@
 
 <body>
 
-<div style="text-align: center;">
-    <img id="qr" src>
+<div class="qr_container">
+    <img id="qr" hidden="hidden" src>
     <script type="text/javascript">
-        org_name = getQueryVariable("org");
-        qr_path = "../org_qr/" + org_name + ".jpg";
-    
-        var qr = document.getElementById("qr");
-        qr.src = qr_path;
+        org_name = getQueryVariable("org"); // 获取url参数中的组织缩写
+        if(org_name != "") {
+            qr_path = "../org_qr/" + org_name + ".jpg"; // 拼接二维码图片路径
+
+            var qr = document.getElementById("qr"); // 捕获二维码图片元素
+            qr.src = qr_path; // 设置二维码图片路径
+            qr.hidden = false; // 显示二维码图片
+        }
     </script>
 </div>
 
