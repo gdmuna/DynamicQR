@@ -1,1 +1,3 @@
-# DynamicQR
+# DynamicQR 活码系统
+
+一个用于存储时效性二维码的活码系统。
