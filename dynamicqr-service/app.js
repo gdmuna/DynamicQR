@@ -27,6 +27,7 @@ const baseUrl = server_conf.baseUrl || '/api';
 app.use(`${baseUrl}/auth`, require('./src/controller/authController'));
 app.use(`${baseUrl}/user`, require('./src/controller/userController'));
 app.use(`${baseUrl}/qrcode`, require('./src/controller/qrcodeController'));
+app.use(`${baseUrl}/public`, require('./src/controller/publicController'));
 
 // 启动服务器
 const server = app.listen(server_conf.port || 33001, server_conf.host || '127.0.0.1', () => {
