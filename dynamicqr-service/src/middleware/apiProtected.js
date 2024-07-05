@@ -33,11 +33,14 @@ const apiProtected = async (req, res, next) => {
             return;
         }
         // 验证 token
-        const status = await authService.tokenVerify(token);
-        if (!status) {
+        const payload = await authService.tokenVerify(token);
+        if (!payload) {
             res.ResultVO(401, 'token 无效');
             return;
         }
+        // 将 token 解析后的 payload 挂载到 req 上
+        req.payload = payload;
+        // 验证通过，继续执行后续操作
         next();
     }
 };

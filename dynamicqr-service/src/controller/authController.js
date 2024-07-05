@@ -6,6 +6,7 @@ const authService = require('../service/authService');
 /**
  * @function login
  * @description 用户登录
+ * @method POST
  * @param {string} account 用户账号
  * @param {string} password 用户密码
  * @return {string} token 登录凭证
@@ -23,14 +24,15 @@ router.post('/login', async (req, res, next) => {
 /**
  * @function verify
  * @description 凭证校验
+ * @method POST
  * @param {string} token 登录凭证
- * @return {boolean} status 凭证是否有效
+ * @return {Object} payload 凭证负载
  */
 router.post('/tokenVerify', async (req, res, next) => {
     const { token } = req.body;
-    const status = await authService.tokenVerify(token);
-    if (status) {
-        res.ResultVO(0, '凭证有效', status);
+    const payload = await authService.tokenVerify(token);
+    if (payload) {
+        res.ResultVO(0, '凭证有效', payload);
     } else {
         res.ResultVO(1, '凭证无效');
     }

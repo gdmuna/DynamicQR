@@ -34,8 +34,7 @@ exports.login = async (account, password) => {
 // 凭证校验
 exports.tokenVerify = async (token) => {
     try {
-        await jwt.verify(token, jwt_conf.secret);
-        return true;
+        return await jwt.verify(token, jwt_conf.secret);
     } catch (err) {
         return;
     }
