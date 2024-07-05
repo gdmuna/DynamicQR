@@ -1,7 +1,7 @@
 const apiUrl = import.meta.env.VITE_API_URL;
 
 // 封装常规请求函数
-const request_unauth = {
+const request_freeauth = {
     // 封装 fetch 作为基础请求函数
     fetch: async (url, options) => {
         return await fetch(`${apiUrl}${url}`, options)
@@ -22,12 +22,10 @@ const request_unauth = {
         return request.fetch(`${url}?${queryString.toString()}`, {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization': localStorage.getItem('token')
-            },
-            query: JSON.stringify(data)
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
         });
     }
 };
 
-export default request_unauth;
+export default request_freeauth;

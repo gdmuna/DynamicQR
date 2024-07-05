@@ -23,9 +23,8 @@ const request = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization': localStorage.getItem('token')
-            },
-            query: JSON.stringify(data)
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
         });
     },
     // 封装 POST 请求
@@ -34,7 +33,7 @@ const request = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage.getItem('token')
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
             body: JSON.stringify(data)
         });
@@ -45,7 +44,7 @@ const request = {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage.getItem('token')
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
             body: JSON.stringify(data)
         });
@@ -56,7 +55,7 @@ const request = {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage.getItem('token')
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
             body: JSON.stringify(data)
         });
