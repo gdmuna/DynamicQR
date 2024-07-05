@@ -9,7 +9,7 @@ exports.getQRCodeList = async (userId) => {
 // 获取单个二维码详情信息
 exports.getQRCodeDetail = async (qrcodeId) => {
     const qrcodeDetail = await qrcodeDao.getQRCodeDetail(qrcodeId);
-    return qrcodeDetail;
+    return qrcodeDetail[0];
 };
 
 // 创建二维码
