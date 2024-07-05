@@ -2,7 +2,7 @@
     <v-app>
         <!-- 菜单栏 -->
         <MenuDrawer v-model="drawer"></MenuDrawer>
-        <v-btn class="fixed top-5 left-5 z-10" icon="" @click="drawer = true">
+        <v-btn v-if="$route.meta.showMenuDrawer" class="fixed top-5 left-5 z-10" icon="" @click="drawer = true">
             <v-icon class="fa-solid fa-bars"></v-icon>
         </v-btn>
         <!-- 主要内容区域 -->
