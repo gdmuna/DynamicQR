@@ -1,0 +1,16 @@
+### 用户登录
+POST http://127.0.0.1:33001/api/auth/login
+Content-Type: application/json
+
+{
+    "account": "",
+    "password": ""
+}
+
+### 凭证校验
+POST http://127.0.0.1:33001/api/auth/tokenVerify
+Content-Type: application/json
+
+{
+    "token": ""
+}

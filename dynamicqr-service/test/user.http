@@ -1,0 +1,8 @@
+### 获取用户信息
+GET http://127.0.0.1:33001/api/user/userInfo
+Content-Type: application/json
+Authorization: Bearer xxx
+
+{
+    "account": ""
+}
