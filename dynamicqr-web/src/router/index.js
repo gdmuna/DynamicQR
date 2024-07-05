@@ -12,7 +12,15 @@ const routes = [
         component: () => import('@/pages/demo/demo.vue'),
         meta: {
             title: '示例页面',
-            showNavBar: true
+            showMenuDrawer: true
+        }
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import('@/pages/auth/login.vue'),
+        meta: {
+            title: '用户登录'
         }
     }
 ];
