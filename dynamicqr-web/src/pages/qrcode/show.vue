@@ -5,7 +5,7 @@
                 <div class="flex flex-col justify-center items-center">
                     <v-card-title>{{ qrcode.name }}</v-card-title>
                     <v-card-text>{{ qrcode.description }}</v-card-text>
-                    <v-avatar rounded="0" size="100">
+                    <v-avatar rounded="0" size="200">
                         <v-img :src="qrcode.img"></v-img>
                     </v-avatar>
                 </div>
