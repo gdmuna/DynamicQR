@@ -1,6 +1,7 @@
 <template>
     <div class="main-container">
         <div class="w-full max-w-screen-sm h-full mx-auto px-10 py-10">
+            <div class="my-2 text-center text-xl">已创建活码列表</div>
             <div v-for="item in qrcodeList" :key="item.qrcodeId" class="py-2">
                 <v-card>
                     <div class="flex flex-row justify-start items-start">
@@ -17,14 +18,27 @@
                         <v-btn color="medium-emphasis" icon="mdi-download" size="small" @click="download(item)"></v-btn>
                         <v-btn color="medium-emphasis" icon="mdi-eye" size="small" @click="preview(item)"></v-btn>
                         <v-btn color="medium-emphasis" icon="mdi-pencil" size="small"></v-btn>
-                        <v-btn color="medium-emphasis" icon="mdi-delete" size="small"></v-btn>
+                        <v-btn color="medium-emphasis" icon="mdi-delete" size="small" @click="preDeleteQRCode(item)"></v-btn>
                     </v-card-actions>
                 </v-card>
             </div>
         </div>
-        <v-dialog v-model="dialog" width="auto">
-            <v-card max-width="400">
-                <iframe width="100%" height="400" :src="dialogUrl"></iframe>
+        <!-- 预览二维码活码弹窗 -->
+        <v-dialog v-model="previewDialog" width="auto">
+            <v-card width="80vw" max-width="500px">
+                <iframe width="100%" height="520px" :src="previewUrl"></iframe>
+            </v-card>
+        </v-dialog>
+        <!-- 删除确认弹窗 -->
+        <v-dialog v-model="deleteDialog" width="auto">
+            <v-card width="80vw" max-width="500px">
+                <v-card-title>确认删除？</v-card-title>
+                <v-card-text>该操作不可逆！！！</v-card-text>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="primary" @click="deleteQRCode()">确认</v-btn>
+                    <v-btn color="error" @click="deleteDialog = false">取消</v-btn>
+                </v-card-actions>
             </v-card>
         </v-dialog>
     </div>
@@ -40,8 +54,10 @@ export default {
     data() {
         return {
             qrcodeList: [],
-            dialog: false,
-            dialogUrl: null
+            previewDialog: false,
+            previewUrl: null,
+            qrcodePreDelete: {},
+            deleteDialog: false
         };
     },
     created() {},
@@ -93,8 +109,19 @@ export default {
         },
         // 预览二维码活码页面
         preview(qrcode) {
-            this.dialogUrl = `${window.location.origin}/show?qrcodeId=${qrcode.qrcodeId}`;
-            this.dialog = true;
+            this.previewUrl = `${window.location.origin}/show?qrcodeId=${qrcode.qrcodeId}`;
+            this.previewDialog = true;
+        },
+        // 预删除二维码确认
+        preDeleteQRCode(qrcode) {
+            this.qrcodePreDelete = qrcode;
+            this.deleteDialog = true;
+        },
+        // 删除二维码活码
+        async deleteQRCode(qrcode = this.qrcodePreDelete) {
+            await this.$api.qrcode.deleteQRCode({ qrcodeId: qrcode.qrcodeId });
+            this.deleteDialog = false;
+            await this.getQRCodeList();
         }
     }
 };
