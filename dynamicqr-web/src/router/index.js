@@ -35,9 +35,9 @@ const routes = [
     {
         path: '/show',
         name: 'show',
-        component: () => import('@/pages/show/qrcode.vue'),
+        component: () => import('@/pages/qrcode/show.vue'),
         meta: {
-            title: '展示页'
+            title: 'DynamicQR'
         }
     }
 ];

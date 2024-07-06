@@ -34,8 +34,7 @@ export default {
                 password: this.user.password
             });
             if (result) {
-                localStorage.setItem('account', this.user.account);
-                this.$router.push('/demo');
+                this.$router.push('/manage');
             }
         }
     }
