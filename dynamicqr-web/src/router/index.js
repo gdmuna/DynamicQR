@@ -33,6 +33,15 @@ const routes = [
         }
     },
     {
+        path: '/create',
+        name: 'create',
+        component: () => import('@/pages/qrcode/create.vue'),
+        meta: {
+            title: '活码创建',
+            showMenuDrawer: true
+        }
+    },
+    {
         path: '/show',
         name: 'show',
         component: () => import('@/pages/qrcode/show.vue'),

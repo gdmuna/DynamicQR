@@ -14,6 +14,10 @@
             </v-list-item>
         </v-list>
         <v-divider class="border-opacity-75"></v-divider>
+        <v-list nav>
+            <v-list-item prepend-icon="mdi-creation" title="创建活码" value="create" to="/create"></v-list-item>
+            <v-list-item prepend-icon="mdi-image-multiple" title="管理活码" value="manage" to="/manage"></v-list-item>
+        </v-list>
         <template #append>
             <div class="p-2">
                 <v-btn color="blue-lighten-4" flat block @click="logout()">退出登录</v-btn>

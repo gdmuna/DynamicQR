@@ -48,6 +48,7 @@
         "filepond-plugin-image-preview": "^4.6.12",
         "pinia": "^2.1.7",
         "qrcode": "^1.5.3",
+        "qrcode-decoder": "^0.3.3",
         "vue": "^3.4.21",
         "vue-filepond": "^7.0.4",
         "vue-router": "4",
