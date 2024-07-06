@@ -11,8 +11,8 @@
                 </div>
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="medium-emphasis" icon="mdi-share-variant" size="small"></v-btn>
-                    <v-btn color="medium-emphasis" icon="mdi-download" size="small" @click="download(qrcode.qrcodeId)"></v-btn>
+                    <v-btn color="pink-accent-1" variant="tonal" icon="mdi-cards-heart" size="small"></v-btn>
+                    <v-btn color="deep-purple-accent-1" variant="tonal" icon="mdi-arrow-down-bold-box" size="small" @click="download(qrcode.qrcodeId)"></v-btn>
                 </v-card-actions>
             </v-card>
         </div>

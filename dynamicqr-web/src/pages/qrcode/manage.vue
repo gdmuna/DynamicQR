@@ -25,9 +25,19 @@
         </div>
         <!-- 预览二维码活码弹窗 -->
         <v-dialog v-model="previewDialog" width="auto">
-            <v-card width="80vw" max-width="500px">
-                <iframe width="100%" height="520px" :src="previewUrl"></iframe>
-            </v-card>
+            <!-- 模拟浏览器窗口 -->
+            <div class="mockup-browser bg-base-300 border h-screen">
+                <div class="mockup-browser-toolbar">
+                    <div class="input">{{ previewUrl }}</div>
+                    <!-- 在新标签页预览活码展示页 -->
+                    <button class="btn btn-sm ml-2" @click="newtabPreview(previewUrl)">
+                        <v-icon icon="mdi-launch"></v-icon>
+                    </button>
+                </div>
+                <div class="bg-base-200 h-full">
+                    <iframe style="width: 100%; height: calc(100% - 48px - 28px)" :src="previewUrl"></iframe>
+                </div>
+            </div>
         </v-dialog>
         <!-- 删除确认弹窗 -->
         <v-dialog v-model="deleteDialog" width="auto">
@@ -111,6 +121,10 @@ export default {
         preview(qrcode) {
             this.previewUrl = `${window.location.origin}/show?qrcodeId=${qrcode.qrcodeId}`;
             this.previewDialog = true;
+        },
+        // 在新标签页预览二维码活码页面
+        newtabPreview(previewUrl) {
+            window.open(`${previewUrl}`);
         },
         // 预删除二维码确认
         preDeleteQRCode(qrcode) {
