@@ -7,7 +7,7 @@ const cors = require('cors');
 app.use(
     cors({
         origin: '*',
-        methods: ['GET', 'POST']
+        methods: ['GET', 'POST', 'PUT', 'DELETE']
     })
 );
 // 将请求体解析为 JSON
