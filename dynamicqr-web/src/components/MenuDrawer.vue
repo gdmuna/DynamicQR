@@ -56,14 +56,12 @@ export default {
     unmounted() {},
     methods: {
         async getUserInfo() {
-            const account = localStorage.getItem('account');
-            const userInfo = await this.$api.user.getUserInfo({ account });
+            const userInfo = await this.$api.user.getUserInfo();
             this.nickName = userInfo.nickName;
         },
         async logout() {
             this._drawer = false;
             this.$store.user = {};
-            localStorage.removeItem('account');
             localStorage.removeItem('token');
             this.$router.push('/login');
         }

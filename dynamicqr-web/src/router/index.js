@@ -4,7 +4,7 @@ const routes = [
     {
         path: '/',
         name: '',
-        redirect: '/demo'
+        redirect: '/login'
     },
     {
         path: '/demo',
@@ -21,6 +21,23 @@ const routes = [
         component: () => import('@/pages/auth/login.vue'),
         meta: {
             title: '用户登录'
+        }
+    },
+    {
+        path: '/manage',
+        name: 'manage',
+        component: () => import('@/pages/qrcode/manage.vue'),
+        meta: {
+            title: '活码管理',
+            showMenuDrawer: true
+        }
+    },
+    {
+        path: '/show',
+        name: 'show',
+        component: () => import('@/pages/show/qrcode.vue'),
+        meta: {
+            title: '展示页'
         }
     }
 ];
