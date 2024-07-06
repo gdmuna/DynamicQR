@@ -1,0 +1,12 @@
+import request from '@/utils/request';
+
+const moduleUrl = '/public';
+
+const publicApi = {
+    // 免认证获取单个二维码详情信息
+    getQRCodeDetail(data) {
+        return request.get(`${moduleUrl}/qrcodeDetail`, data);
+    }
+};
+
+export default publicApi;
