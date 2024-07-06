@@ -20,7 +20,7 @@ exports.login = async (account, password) => {
     // 生成 token
     const token = await jwt.sign(
         {
-            userId: user[0].id,
+            userId: user[0].userId,
             userAccount: user[0].account
         },
         jwt_conf.secret,
