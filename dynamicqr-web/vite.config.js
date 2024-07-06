@@ -25,7 +25,14 @@ export default defineConfig(({ command, mode }) => {
             host: '0.0.0.0',
             port: 8081,
             open: true, // 自动打开浏览器
-            hmr: true // 开启热更新
+            hmr: true, // 开启热更新
+            proxy: {
+                '/api': {
+                    target: 'http://127.0.0.1:33001',
+                    changeOrigin: true,
+                    rewrite: (path) => path.replace(/^\/api/, '')
+                }
+            }
         },
         plugins: [vue(), vuetify()],
         // 打包时自动去除 console 和 debugger
