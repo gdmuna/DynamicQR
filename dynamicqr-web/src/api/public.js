@@ -1,11 +1,11 @@
-import request from '@/utils/request';
+import request_freeauth from '@/utils/request_freeauth';
 
 const moduleUrl = '/public';
 
 const publicApi = {
     // 免认证获取单个二维码详情信息
     getQRCodeDetail(data) {
-        return request.get(`${moduleUrl}/qrcodeDetail`, data);
+        return request_freeauth.get(`${moduleUrl}/qrcodeDetail`, data);
     }
 };
 

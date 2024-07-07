@@ -19,7 +19,7 @@ const request_freeauth = {
     // 封装 GET 请求
     get: (url, data) => {
         const queryString = new URLSearchParams(data);
-        return request.fetch(`${url}?${queryString.toString()}`, {
+        return request_freeauth.fetch(`${url}?${queryString.toString()}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
